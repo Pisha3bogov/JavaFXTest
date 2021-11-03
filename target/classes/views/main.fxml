@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.sapteh.controller.MainController">
+    <children>
+        <TextField fx:id="firstNameText" layoutX="226.0" layoutY="95.0">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="lastNameText" layoutX="226.0" layoutY="157.0">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="ageText" layoutX="226.0" layoutY="222.0">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </TextField>
+        <Label layoutX="90.0" layoutY="99.0" text="Имя">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Label layoutX="90.0" layoutY="161.0" text="Фамилия">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Label layoutX="90.0" layoutY="226.0" text="Возраст">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Label>
+        <Button layoutX="457.0" layoutY="318.0" mnemonicParsing="false" onAction="#addedButton" text="Добавить">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Button>
+        <Button layoutX="52.0" layoutY="318.0" mnemonicParsing="false" onAction="#exitButton" text="Выход">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Button>
+
+        <Label fx:id="alertText" layoutX="286.0" layoutY="276.0" textAlignment="CENTER">
+            <font>
+                <Font size="18" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>
