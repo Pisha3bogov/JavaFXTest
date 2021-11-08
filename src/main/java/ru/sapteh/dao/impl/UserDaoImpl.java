@@ -42,7 +42,7 @@ public class UserDaoImpl implements Dao<User,Integer> {
     @Override
     public void update(User user) {
         try(Session session = factory.openSession()) {
-            final Transaction transaction = session.getTransaction();
+            final Transaction transaction = session.beginTransaction();
             session.update(user);
             transaction.commit();
         }
@@ -51,7 +51,7 @@ public class UserDaoImpl implements Dao<User,Integer> {
     @Override
     public void delete(User user) {
         try(Session session = factory.openSession()) {
-            final Transaction transaction = session.getTransaction();
+            final Transaction transaction = session.beginTransaction();
             session.delete(user);
             transaction.commit();
         }

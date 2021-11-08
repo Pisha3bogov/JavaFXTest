@@ -11,7 +11,7 @@ public class Test {
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Dao<User, Integer> userIntegerDao = new UserDaoImpl(factory);
 
-        User user = new User("Roman","Shutov",19);
-        userIntegerDao.save(user);
+//        User byID = userIntegerDao.findById(3);
+//        userIntegerDao.delete(byID);
     }
 }

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.sapteh.controller.FindUserController">
+   <children>
+      <TableView fx:id="userTableView" layoutX="30.0" layoutY="84.0" prefHeight="464.0" prefWidth="362.0">
+        <columns>
+          <TableColumn fx:id="idColumn" prefWidth="45.0" text="№" />
+          <TableColumn fx:id="firstNameColumn" prefWidth="113.0" text="Имя" />
+            <TableColumn fx:id="lastNameColumn" prefWidth="135.0" text="Фамилия" />
+            <TableColumn fx:id="ageColumn" prefWidth="68.0" text="Возраст" />
+        </columns>
+      </TableView>
+      <Separator layoutX="397.0" orientation="VERTICAL" prefHeight="600.0" prefWidth="0.0" />
+      <Label fx:id="labelId" layoutX="648.0" layoutY="93.0" prefHeight="17.0" prefWidth="14.0" />
+      <Label layoutX="479.0" layoutY="93.0" text="№" />
+      <Label layoutX="479.0" layoutY="166.0" prefHeight="17.0" prefWidth="28.0" text="Имя" />
+      <Label layoutX="468.0" layoutY="238.0" text="Фамилия" />
+      <Label layoutX="472.0" layoutY="308.0" text="Возраст" />
+      <TextField fx:id="firstNameTextField" layoutX="580.0" layoutY="162.0" />
+      <TextField fx:id="lastNameTextField" layoutX="581.0" layoutY="234.0" />
+      <TextField fx:id="ageTextField" layoutX="580.0" layoutY="304.0" />
+      <Button layoutX="448.0" layoutY="413.0" mnemonicParsing="false" onAction="#deleteButton" prefHeight="32.0" prefWidth="76.0" text="Удалить" />
+      <Button layoutX="573.0" layoutY="413.0" mnemonicParsing="false" onAction="#updateButton" prefHeight="32.0" prefWidth="76.0" text="Обновить" />
+      <Button layoutX="689.0" layoutY="413.0" mnemonicParsing="false" onAction="#saveButton" prefHeight="32.0" prefWidth="76.0" text="Добавить" />
+   </children>
+</AnchorPane>
