@@ -12,7 +12,8 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import ru.sapteh.model.User;
+import ru.sapteh.model.Admin;
+import ru.sapteh.service.AdminService;
 import ru.sapteh.service.UserService;
 
 import java.io.IOException;
@@ -21,40 +22,44 @@ import java.util.Objects;
 
 public class MainController {
 
-    private final UserService userService;
+    private final AdminService adminService;
+
+    @FXML
+    public TextField loginTextField;
+
+    @FXML
+    public TextField passwordTextField;
 
     @FXML
     private Label alertText;
-    @FXML
-    private TextField firstNameText;
-    @FXML
-    private TextField lastNameText;
-    @FXML
-    private TextField ageText;
 
     public MainController() {
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
-        this.userService = new UserService(factory);
+        this.adminService = new AdminService(factory);
     }
 
-    public void addedButton(ActionEvent activeEvent) {
-        userService.save(new User(
-                firstNameText.getText(),
-                lastNameText.getText(),
-                Integer.parseInt(ageText.getText())
-        ));
-        alertText.setTextFill(Color.GREEN);
-        alertText.setText("Вы успешно добавили пользователя");
-    }
     public void exitButton(ActionEvent activeEvent) {
         final Button source = (Button) activeEvent.getSource();
         source.getScene().getWindow().hide();
     }
 
     public void inputButton(ActionEvent actionEvent) {
-        Button input = (Button) actionEvent.getSource();
-        input.getScene().getWindow().hide();
+        Admin admin = new Admin(loginTextField.getText(), passwordTextField.getText());
+        final boolean isExists = adminService.findAll().stream().anyMatch(admin::equals);
 
+        if(isExists) {
+            Button input = (Button) actionEvent.getSource();
+            input.getScene().getWindow().hide();
+
+            openScene();
+        } else {
+            alertText.setTextFill(Color.RED);
+            alertText.setText("Логин или пароль введены не верно");
+            passwordTextField.clear();
+        }
+}
+
+    public void openScene() {
         Stage stage = new Stage();
 
         Parent root = null;
@@ -69,4 +74,4 @@ public class MainController {
         assert root != null;
         stage.setScene(new Scene(root));
         stage.show();}
-}
+    }
